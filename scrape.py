@@ -1,6 +1,13 @@
 import sys
 import bs4
 import requests
+import os
+
+if os.path.exists("paras.txt"):
+    print("removing previous txt file")
+    os.remove("paras.txt")
+else:
+    print("The file does not exist") 
 
 res = requests.get('http://google.com/search?q=' + ' '.join(sys.argv[1:])) #taking argument in the terminal 
 res.raise_for_status() 
